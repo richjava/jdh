@@ -21,7 +21,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
-  font-weight: normal;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 40px;
 }
 
 ul {
@@ -36,5 +44,9 @@ li {
 
 a {
   color: #42b983;
+}
+
+.intro {
+  padding: 30px;
 }
 </style>

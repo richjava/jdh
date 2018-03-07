@@ -1,6 +1,6 @@
 # spa
 
-> A Vue.js single page application project using vue-router by samuelayo
+> A Vue.js single page application project using vue-router
 
 ## Build Setup
 

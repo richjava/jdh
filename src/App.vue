@@ -18,11 +18,14 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Intro from './components/Intro'
+import Dan from './components/Dan/Home-Dan'
+import Hayden from './components/Hayden/Home-Hayden'
+import Joel from './components/Joel/Home-Joel'
 export default {
   name: 'app',
   components: {
-    Hello
+    Intro, Dan, Hayden, Joel
   }
 }
 </script>
@@ -30,20 +33,19 @@ export default {
 <style>
 body {
   background-color: #191919;
+  margin: 0;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
 }
 
 .row { font-size:0; position:relative; }
 .column {
-  display:inline-block; vertical-align: top; font-size: 16px; min-height:1px;
+  display:inline-block; vertical-align: top; font-size: 16px; min-height:1px; height: 100%;
 }
 .column img { max-width:100%; height:auto !important; }
     /* columns */
