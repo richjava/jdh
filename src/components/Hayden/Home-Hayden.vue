@@ -17,7 +17,7 @@ export default {
   data () {
     return {
       name: 'Hayden Wrathall',
-      project: 'The Hayden Wrathall Project'
+      project: 'Remix Creative'
     }
   }
 }

@@ -25,3 +25,8 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Update Log
+
+8/03/18
+> Add projects folder in root so everyone has there own project in their own folder. May need to create assets folder though.
