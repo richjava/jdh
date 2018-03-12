@@ -1,61 +1,138 @@
 <template>
-  <div id="app">
-    <header>
-      <div class="logo">
-        <img src="./assets/remix-creative-logo.png" alt="">
-      </div><!-- / logo -->
-      <nav>
-        <router-link v-bind:to="'/'">Home</router-link>
-        <router-link v-bind:to="'/designers'">Our Designers</router-link>
-        <router-link v-bind:to="'/about'">About</router-link>
-      </nav>
-    </header>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <img src="./assets/remix-creative-logo.png" alt="">
+            </div>
+            <!-- / logo -->
+            <nav>
+                <router-link v-bind:to="'/'">Home</router-link>
+                <router-link v-bind:to="'/designers'">Our Designers</router-link>
+                <router-link v-bind:to="'/about'">About</router-link>
+            </nav>
+        </header>
 
-    <div id="page">
-      <router-view></router-view>
-    </div><!-- / page -->
+        <div id="page">
+            <router-view></router-view>
+        </div>
+        <!-- / page -->
 
-    <footer>
-      
-    </footer>
-  </div><!-- / app -->
+        <div class="holder">
+            <footer>
+                <div class="contact-info">
+                    <h4>Contact us at</h4>
+                    <div class="phone-number">
+                        ph: 03-666-6666
+                    </div>
+                    <div class="email">
+                        email: <a href="#">{{ email }}</a>
+                    </div>
+                    <div class="address">
+                        address: {{ address }}
+                    </div>
+                </div><!-- / contact info -->
+                <div class="social-media">
+                    <h4>Also find us at:</h4>
+                    <div class="social-media-icons">
+                        <span class="mdi mdi-facebook"></span>
+                        <span class="mdi mdi-twitter"></span>
+                        <span class="mdi mdi-instagram"></span>
+                        <span class="mdi mdi-linkedin"></span>
+                    </div><!-- / social media icons -->
+                </div><!-- / social media -->
+            </footer>
+        </div>
+    </div>
+    <!-- / app -->
 </template>
 
 <script>
 export default {
-  name: 'app',
+    name: 'app',
+    data() {
+        return {
+            email: 'hello@remixcreative.co.nz',
+            address: '7 Hindess St, Christchurch 8025'
+        }
+    }
 }
 </script>
 <!-- styling for the component -->
 <style>
 body {
-  margin: 0;
-  /*
+    margin: 0;
+    /*
   background: -webkit-linear-gradient(180deg, rgb(246, 114, 128), rgb(53, 92, 125));
   background: linear-gradient(180deg, rgb(246, 114, 128), rgb(53, 92, 125));
   */
 }
+html {
+    background: #355c7d;
+}
+
+body { 
+    background: -webkit-linear-gradient(180deg, rgb(246, 114, 128), rgb(53, 92, 125));
+    background: linear-gradient(180deg, rgb(246, 114, 128), rgb(53, 92, 125));
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
 
 #app {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #fff;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #fff;
 }
 
 header {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-column-gap: 1em;
-  padding: 0 30px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 1em;
+    padding: 20px 30px;
 }
 
 header .logo {
-  
+    font-size: 0;
 }
 
 nav {
-  text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+nav a {
+    font-size: 30px;
+    margin: 1.2em 1em;
+}
+
+.holder {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.social-media {
+    text-align: right;
+}
+
+.social-media-icons span {
+    background: #292929;
+    font-size: 30px;
+    padding: 5px 10px;;
+    border-radius: 50%;
 }
 </style>

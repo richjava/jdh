@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'designers',
+    name: 'designers',
 }
 </script>
 <!-- styling for the component -->
