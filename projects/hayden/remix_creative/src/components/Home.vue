@@ -8,8 +8,16 @@
 
         <div class="holder">
             <div class="projects">
-                <ul>
-                    <li></li>
+                <ul class="projects-list">
+                    <li class="project" v-for="project in projects.slice(12)">
+                        <a v-bind:href="project.url" target="_blank">
+                            <img v-bind:src='project.covers.original' alt="">
+                            <div class="project-hover">
+                                <h5>{{ project.name }}</h5>
+                                <p>{{ project.fields }}</p>
+                            </div><!-- / project hover -->
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- / projects -->
@@ -23,9 +31,8 @@ export default {
     name: 'home',
     data() {
         return {
-            msg: 'Welcome to Your Vue.js App',
             projects: [],
-            projectCovers: []
+            users: ['mattharvey', 'vitorugo', 'rafaeldraws', 'stanleysun']
         }
     },
     methods: {
@@ -33,10 +40,12 @@ export default {
             this.$http.jsonp('http://behance.net/v2/users/mattharvey/projects?api_key=wmkhz92FaRjQt4LZzE0L3akK6CXqQOMB')
             .then(response => {
                 this.projects = response.body.projects;
-                var shuffle = require('shuffle-array')
-                shuffle(this.projects)
-                console.log(JSON.parse(JSON.stringify(this.projects)))
+                this.shuffleArray(this.projects);
             });
+        },
+        shuffleArray: function(array) {
+            var shuffle = require('shuffle-array');
+            shuffle(array);
         }
     },
     created: function() {
@@ -60,6 +69,7 @@ li {
 
 .banner {
     position: relative;
+    overflow: hidden;
 }
 
 .banner img {
@@ -75,6 +85,51 @@ li {
     text-transform: uppercase;
     font-weight: 800;
     width: 80%;
+}
+
+.projects {
+    margin-top: 70px;
+}
+
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(6, 6fr);
+    grid-gap: 1em;
+}
+
+.projects-list img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.project:hover img {
+    opacity: 0.5;
+}
+
+.project {
+    position: relative;
+}
+
+.project-hover {
+    display: none;
+    background: #fff;
+    padding: 10px;
+    width: 70%;
+    color: #292929;
+    border-radius: 20px;
+}
+
+.project-hover h5, .project-hover p {
+    font-size: 12px;
+}
+
+.project:hover .project-hover {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 </style>

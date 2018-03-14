@@ -2,7 +2,9 @@
     <div id="app">
         <header>
             <div class="logo">
-                <img src="./assets/remix-creative-logo.png" alt="">
+                <a href="#">
+                    <img src="./assets/remix-creative-logo.png" alt="">
+                </a>
             </div>
             <!-- / logo -->
             <nav>
@@ -80,6 +82,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #292929;
+}
+
 #app {
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -111,7 +117,7 @@ nav a {
 }
 
 .holder {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -119,6 +125,9 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
+    padding: 50px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -132,7 +141,13 @@ footer {
 .social-media-icons span {
     background: #292929;
     font-size: 30px;
-    padding: 5px 10px;;
+    padding: 5px 10px;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.social-media-icons span:hover {
+    background: #eee;
+    color: #292929;
 }
 </style>
