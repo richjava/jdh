@@ -1,10 +1,6 @@
 <template>
     <div class="home">
-        <div class="banner">
-            <img src="../assets/home-banner.png" alt="">
-            <h1>This is <br>Remix Creative</h1>
-        </div>
-        <!-- / banner -->
+        <Banner></Banner>
 
         <div class="holder">
             <div class="projects">
@@ -15,18 +11,21 @@
                             <div class="project-hover">
                                 <h5>{{ project.name }}</h5>
                                 <p>{{ project.fields }}</p>
-                            </div><!-- / project hover -->
+                            </div>
+                            <!-- / project hover -->
                         </a>
                     </li>
                 </ul>
             </div>
             <!-- / projects -->
-        </div><!-- / holder -->
+        </div>
+        <!-- / holder -->
     </div>
     <!-- / home -->
 </template>
 
 <script>
+import Banner from './Banner'
 export default {
     name: 'home',
     data() {
@@ -35,13 +34,16 @@ export default {
             users: ['mattharvey', 'vitorugo', 'rafaeldraws', 'stanleysun']
         }
     },
+    components: {
+        Banner
+    },
     methods: {
         getProjects: function() {
             this.$http.jsonp('http://behance.net/v2/users/mattharvey/projects?api_key=wmkhz92FaRjQt4LZzE0L3akK6CXqQOMB')
-            .then(response => {
-                this.projects = response.body.projects;
-                this.shuffleArray(this.projects);
-            });
+                .then(response => {
+                    this.projects = response.body.projects;
+                    this.shuffleArray(this.projects);
+                });
         },
         shuffleArray: function(array) {
             var shuffle = require('shuffle-array');
@@ -56,7 +58,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -120,7 +121,8 @@ li {
     border-radius: 20px;
 }
 
-.project-hover h5, .project-hover p {
+.project-hover h5,
+.project-hover p {
     font-size: 12px;
 }
 
@@ -131,5 +133,4 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 </style>

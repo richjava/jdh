@@ -16,13 +16,27 @@ Vue.use(VueResource)
 
 import Home from './components/Home'
 import Designers from './components/Designers'
+import Designer from './components/Designer'
 import About from './components/About'
 
 //define your routes
-const routes = [
-  { path: '/', component: Home },
-  { path: '/designers', component: Designers },
-  { path: '/about', component: About }
+const routes = [{
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/about',
+    component: About
+  },
+  {
+    path: '/designers',
+    component: Designers
+  },
+  {
+    path: '/designers/:username',
+    component: Designer,
+    props: true
+  }
 ]
 
 // Create the router instance and pass the `routes` option
@@ -36,12 +50,14 @@ const router = new VueRouter({
 
 //instatinat the vue instance
 new Vue({
-	//define the selector for the root component
+  //define the selector for the root component
   el: '#app',
   //pass the template to the root component
   template: '<App/>',
   //declare components that the root component can access
-  components: { App },
+  components: {
+    App
+  },
   //pass in the router to the Vue instance
   router
-}).$mount('#app')//mount the router on the app
+}).$mount('#app') //mount the router on the app

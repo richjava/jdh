@@ -1,23 +1,28 @@
 <template>
     <div class="our-people">
-        <div class="banner">
-            <img src="../assets/home-banner.png" alt="">
-            <h1>This is <br>Remix Creative</h1>
-        </div>
-        <!-- / banner -->
+        <Banner></Banner>
 
-        <div class="designers">
-            <h2>Here are our people</h2>
-            <ul class="designer-list">
-                <li class="designer" v-for="designer in designers">
-                    
-                </li>
-            </ul>
-        </div><!-- / designers -->
-    </div><!-- / our people -->
+        <div class="holder">
+            <div class="designers">
+                <h2>Here are our people</h2>
+                <ul class="designer-list">
+                    <li class="designer" v-for="designer in designers" v-if="designer.images[276]">
+                        <router-link v-bind:to="'/designers/' + designer.username">
+                            <img v-bind:src="designer.images[276]" alt="">
+                            <h3>{{ designer.first_name }} {{ designer.last_name }}</h3>
+                        </router-link>
+                    </li>
+                </ul>
+            </div>
+            <!-- / designers -->
+        </div>
+        <!-- / holder -->
+    </div>
+    <!-- / our people -->
 </template>
 
 <script>
+import Banner from './Banner'
 export default {
     name: 'designers',
     data() {
@@ -26,22 +31,29 @@ export default {
             //users: ['mattharvey', 'vitorugo', 'rafaeldraws', 'stanleysun']
         }
     },
+    components: {
+        Banner
+    },
     methods: {
-        getProjects: function() {
-            this.$http.jsonp('http://behance.net/v2/users/haydenwrat86b8/projects?api_key=wmkhz92FaRjQt4LZzE0L3akK6CXqQOMB')
-            .then(response => {
-                this.designers = response.body.following;
-            });
+        getDesigners: function() {
+            this.$http.jsonp('http://behance.net/v2/users/haydenwrat86b8/following?api_key=wmkhz92FaRjQt4LZzE0L3akK6CXqQOMB')
+                .then(response => {
+                    this.designers = response.body.following;
+                    //console.log(JSON.stringify(this.designers))
+                });
         },
     },
     created: function() {
-        this.getProjects();
+        this.getDesigners();
     }
 }
 </script>
 
 <!-- styling for the component -->
 <style>
+h2 {
+    font-size: 50px;
+}
 
 ul {
     list-style-type: none;
@@ -71,5 +83,18 @@ li {
     text-transform: uppercase;
     font-weight: 800;
     width: 80%;
+}
+
+.designers {
+    margin: 50px 0 100px;
+}
+
+.designer-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr
+}
+
+.designer img {
+    border-radius: 50%;
 }
 </style>

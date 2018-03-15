@@ -19,12 +19,12 @@
         </div>
         <!-- / page -->
 
-        <div class="holder">
-            <footer>
+        <footer>
+            <div class="holder">
                 <div class="contact-info">
                     <h4>Contact us at</h4>
                     <div class="phone-number">
-                        ph: 03-666-6666
+                        ph: {{ ph }}
                     </div>
                     <div class="email">
                         email: <a href="#">{{ email }}</a>
@@ -42,17 +42,19 @@
                         <span class="mdi mdi-linkedin"></span>
                     </div><!-- / social media icons -->
                 </div><!-- / social media -->
-            </footer>
-        </div>
-    </div>
+            </div><!-- / holder -->
+        </footer>
+    </div><!-- / app -->
     <!-- / app -->
 </template>
 
 <script>
+
 export default {
     name: 'app',
     data() {
         return {
+            ph: '03-366-6666',
             email: 'hello@remixcreative.co.nz',
             address: '7 Hindess St, Christchurch 8025'
         }
@@ -98,7 +100,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1em;
-    padding: 20px 30px;
+    padding: 10px 30px;
 }
 
 header .logo {
@@ -122,12 +124,16 @@ nav a {
 }
 
 footer {
+    border-top: 1px solid #fff;
+}
+
+footer .holder {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
     padding: 50px 0;
-    max-width: 1200px;
     margin: 0 auto;
+    max-width: 1200px;
 }
 
 .contact-info {
