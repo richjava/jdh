@@ -9,7 +9,7 @@ export default {
   name: 'joel',
   data () {
     return {
-      name: 'Joel Withers',
+      name: 'Joel Withers!',
       project: 'The Joel Withers Project'
     }
   }
